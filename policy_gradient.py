@@ -154,11 +154,11 @@ with tf.Session() as sess:
 
         for var_index, gradient_placeholder in enumerate(gradient_placeholders):
             mean_gradients = np.mean([reward * all_gradients[game_index][step][var_index]
-                                      for game_index, rewards in enumerate(all_rewards):
+                                      for game_index, rewards in enumerate(all_rewards)
                                           for step, reward in enumerate(rewards)], axis=0)
             feed_dict[gradient_placeholder] = mean_gradients
 
-'''        sess.run(training_op, feed_dict=feed_dict)
+       sess.run(training_op, feed_dict=feed_dict)
 
     print('SAVING GRAPH AND SESSION')
     meta_graph_def = tf.train.export_meta_graph(filename='./models/my-650-step-model.meta')
@@ -183,4 +183,3 @@ with tf.Session() as sess:
         env.render()
         action_val, gradients_val = sess.run([action, gradients], feed_dict={X: observations.reshape(1, num_inputs)})
         observations, reward, done, info = env.step(action_val[0][0])
-'''

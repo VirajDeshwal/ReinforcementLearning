@@ -108,7 +108,7 @@ num_game_rounds = 10
 max_game_steps = 1000
 num_iterations = 50000
 discount_rate = 0.95
-
+'''
 with tf.Session() as sess:
     sess.run(init)
 
@@ -164,7 +164,7 @@ with tf.Session() as sess:
     meta_graph_def = tf.train.export_meta_graph(filename='./models/my-650-step-model.meta')
     saver.save(sess, './models/my-650-step-model')
 
-
+'''
 
 #############################################
 ### RUN TRAINED MODEL ON ENVIRONMENT #######
